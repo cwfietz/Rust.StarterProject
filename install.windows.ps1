@@ -3,6 +3,17 @@
 
 iwr -useb https://raw.githubusercontent.com/JayBazuzi/machine-setup/main/windows.ps1 | iex
 
+# Add VS Code extentions
+@(
+    'rust-lang.rust',
+    'formulahendry.code-runner',
+    'bungcip.better-toml'
+) | % { & "C:\Program Files\Microsoft VS Code\bin\code.cmd" --install-extension $_ }
+
+# download the Microsoft C++ Build Tools
+choco install visualstudio2019buildtools
+choco install visualstudio2019-workload-visualstudioextensionbuildtools
+
 choco install rust
 choco install rustup.install --ignore-checksum
 
@@ -15,12 +26,7 @@ rustup component add clippy
 
 cinst intellijidea
 
-# Add VS Code extentions
-@(
-    'rust-lang.rust',
-    'formulahendry.code-runner',
-    'bungcip.better-toml'
-) | % { & "C:\Program Files\Microsoft VS Code\bin\code.cmd" --install-extension $_ }
+
 
 # Clone repo
 & "C:\Program Files\Git\cmd\git.exe" clone https://github.com/cwfietz/Rust.StarterProject.git C:\Code\Rust.StarterProject
