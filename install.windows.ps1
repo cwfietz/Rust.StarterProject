@@ -24,12 +24,14 @@ rustup self update
 rustup component add rustfmt
 rustup component add clippy
 
-cinst intellijidea
-
-
+# cinst intellijidea
+# choco install intellijidea-community
 
 # Clone repo
 & "C:\Program Files\Git\cmd\git.exe" clone https://github.com/cwfietz/Rust.StarterProject.git C:\Code\Rust.StarterProject
 
+# reload powershell to get environment running
+$env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine")
+
 # Run tests via the command line (you may have to reload the terminal after installation before trying this):
-# cargo test
+cargo test
