@@ -4,7 +4,7 @@
 iwr -useb https://raw.githubusercontent.com/JayBazuzi/machine-setup/main/windows.ps1 | iex
 
 choco install rust
-choco install rustup.install
+choco install rustup.install --ignore-checksum
 
 # reload powershell to get environment running
 $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine")
